@@ -352,99 +352,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1 &478554460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 478554461}
-  - component: {fileID: 478554465}
-  - component: {fileID: 478554462}
-  - component: {fileID: 478554463}
-  - component: {fileID: 478554464}
-  m_Layer: 0
-  m_Name: Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &478554461
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478554460}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1920, y: 1080, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &478554462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478554460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaf26ccbe489e024b92f1327ae7f58d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FileImporter
-  _folderData: {fileID: 11400000, guid: d7410c5aea604d74f9ec107db3b5704a, type: 2}
-  _imageImporter: {fileID: 478554463}
-  _scenarioURL: {fileID: 11400000, guid: 413b1012c7b490548aa2222b188b119e, type: 2}
-  _imageURL: {fileID: 11400000, guid: a3b4d3b9944bf4e4a9ecbe0febb1c515, type: 2}
---- !u!114 &478554463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478554460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cbe467766f2f149ac88889ec4435bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ImageImporter
-  _folderData: {fileID: 11400000, guid: d7410c5aea604d74f9ec107db3b5704a, type: 2}
---- !u!114 &478554464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478554460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3748d341e9bf0a47adbfaa55ed9cb41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameDataDeserializer
-  _folderData: {fileID: 11400000, guid: d7410c5aea604d74f9ec107db3b5704a, type: 2}
---- !u!114 &478554465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478554460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb22560d4e56c049bc997c29f479772, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Common.GameDataLoadManager
-  _fileImporter: {fileID: 478554462}
-  _gameDataDeserializer: {fileID: 478554464}
-  _test: {fileID: 1723114801}
-  _testId: BG01
 --- !u!1 &730467324
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +363,7 @@ GameObject:
   - component: {fileID: 730467325}
   - component: {fileID: 730467327}
   - component: {fileID: 730467326}
+  - component: {fileID: 730467328}
   m_Layer: 5
   m_Name: Message (1)
   m_TagString: Untagged
@@ -520,6 +428,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730467324}
   m_CullTransparentMesh: 1
+--- !u!114 &730467328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730467324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23474a75ef4b27f40b52d90769116d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageTest
+  _image: {fileID: 730467326}
+  _imagePath: CR05
 --- !u!1 &779930816
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +669,7 @@ GameObject:
   - component: {fileID: 916442262}
   - component: {fileID: 916442264}
   - component: {fileID: 916442263}
+  - component: {fileID: 916442265}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -811,6 +734,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916442261}
   m_CullTransparentMesh: 1
+--- !u!114 &916442265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916442261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23474a75ef4b27f40b52d90769116d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageTest
+  _image: {fileID: 916442263}
+  _imagePath: CR01
 --- !u!1 &1723114799
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +759,7 @@ GameObject:
   - component: {fileID: 1723114800}
   - component: {fileID: 1723114802}
   - component: {fileID: 1723114801}
+  - component: {fileID: 1723114803}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -886,6 +824,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723114799}
   m_CullTransparentMesh: 1
+--- !u!114 &1723114803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723114799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23474a75ef4b27f40b52d90769116d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageTest
+  _image: {fileID: 1723114801}
+  _imagePath: BG01
 --- !u!1 &2003804679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +994,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 843363086}
   - {fileID: 223591044}
-  - {fileID: 478554461}
   - {fileID: 126046583}
   - {fileID: 779930819}

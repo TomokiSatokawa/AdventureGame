@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace DataImporter
 {
@@ -9,13 +8,6 @@ namespace DataImporter
     {
         [SerializeField] private FileImporter _fileImporter;
         [SerializeField] private GameDataDeserializer _gameDataDeserializer;
-        [SerializeField] private Image _test;
-        [SerializeField] private string _testId;
-
-        private void Start()
-        {
-            Load().Forget();
-        }
 
         public async UniTask Load()
         {
@@ -25,12 +17,7 @@ namespace DataImporter
             Debug.Log($"ÉçÅ[ÉhíÜ");
             _gameDataDeserializer.Deserialize();
 
-
             Debug.Log("äÆóπ");
-
-            await UniTask.WaitForSeconds(1);
-
-            _test.sprite = GameDataContainer.GetImage(_testId);
         }
     }
 }

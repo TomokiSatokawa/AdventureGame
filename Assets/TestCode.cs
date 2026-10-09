@@ -9,6 +9,9 @@ public class TestCode : MonoBehaviour
 
     private async void OnEnable()
     {
-        await _messageControl.ShowMessage(_a, _b);
+        while (true)
+        {
+            await _messageControl.ShowMessage(_a, _b);
+        }
     }
 }

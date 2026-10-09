@@ -1,5 +1,5 @@
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using R3;
 using TMPro;
 using UnityEngine;
 
@@ -19,8 +19,11 @@ namespace InGame.Message
         [SerializeField] private float _skipTextInterval;
 
         private MessageState _currentState = MessageState.Idle;
-        
 
+        private void Start()
+        {
+            InputManager.Next.Subscribe(_ => OnNextButton());
+        }
 
         private void OnNextButton()
         {
@@ -36,7 +39,7 @@ namespace InGame.Message
             }
         }
 
-        public async UniTask ShowMessage(string character,string text)
+        public async UniTask ShowMessage(string character, string text)
         {
             _currentState = MessageState.Normal;
 
@@ -44,10 +47,10 @@ namespace InGame.Message
             _messageText.text = "";
 
             bool isTag = false;
-            foreach(var t in text)
+            foreach (var t in text)
             {
                 //タグを検出
-                if(t == '<')
+                if (t == '<')
                 {
                     isTag = true;
                 }
@@ -56,7 +59,12 @@ namespace InGame.Message
                 //タグ中は一括表示
                 if (!isTag)
                 {
-                    await UniTask.WaitForSeconds(GetTextInterval());
+                    var interval = GetTextInterval();
+
+                    if (interval > 0f)
+                    {
+                        await UniTask.WaitForSeconds(interval);
+                    }
                 }
 
 
@@ -67,8 +75,13 @@ namespace InGame.Message
             }
             _currentState = MessageState.Wait;
 
-            while (_currentState == MessageState.End)
+            while (true)
+            {
+                if (_currentState == MessageState.End)
+                    break;
+
                 await UniTask.Yield();
+            }
 
             _currentState = MessageState.Idle;
         }
@@ -88,7 +101,7 @@ namespace InGame.Message
 
         private enum MessageState
         {
-            Idle,Normal,Skip,Wait,End
+            Idle, Normal, Skip, Wait, End
         }
     }
 }

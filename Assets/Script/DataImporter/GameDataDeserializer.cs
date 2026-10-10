@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Common.Storage;
 using Csv;
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
+using UnityEngine.WSA;
 
 namespace DataImporter
 {
@@ -24,6 +27,22 @@ namespace DataImporter
             //画像読み込み
             DeserializeCSV<ImageIDData>(_folderData.AssetFolder, _folderData.AssetVersionsFileName,
              (_, images) => LoadSprite(images));
+
+            //イベント読み込み
+            foreach (var kv in GetSheetList(_folderData.EventFolder, _folderData.EventVersionsFileName))
+            {
+                if (string.IsNullOrEmpty(kv.Key))
+                    continue;
+
+                switch(kv.Key[0])
+                {
+                    //分岐データ
+                    case '0':
+                        foreach (var branchData in CsvSerializer.Deserialize<BranchData>(kv.Value))
+                            GameDataContainer.SetBranch(branchData.BranchId, branchData);
+                        break;
+                }
+            }
         }
 
        /// <summary>
@@ -31,6 +50,17 @@ namespace DataImporter
        /// </summary>
         private void DeserializeCSV<T>(string folder, string versionsFile, Action<string, T[]> containerAction)
         {
+            foreach (var kv in GetSheetList(folder, versionsFile))
+            {
+                var datas = CsvSerializer.Deserialize<T>(kv.Value);
+                containerAction.Invoke(kv.Key, datas);
+            }
+        }
+
+        private Dictionary<string, string> GetSheetList(string folder, string versionsFile)
+        {
+            Dictionary<string, string> result = new();
+
             var versionData = FileStorage.LoadFile(_folderData.CashFolder, versionsFile);
             var versionCSV = CsvSerializer.Deserialize<VersionFileData>(versionData);
 
@@ -47,9 +77,10 @@ namespace DataImporter
 
                     continue;
                 }
-                var datas = CsvSerializer.Deserialize<T>(csv);
-                containerAction.Invoke(version.SheetName, datas);
+                result.Add(version.SheetName, csv);
             }
+
+            return result;
         }
 
         /// <summary>

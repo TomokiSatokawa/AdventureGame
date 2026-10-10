@@ -65,6 +65,7 @@ MonoBehaviour:
   _imageImporter: {fileID: 5557920001591177140}
   _scenarioURL: {fileID: 11400000, guid: 413b1012c7b490548aa2222b188b119e, type: 2}
   _imageURL: {fileID: 11400000, guid: a3b4d3b9944bf4e4a9ecbe0febb1c515, type: 2}
+  _eventURL: {fileID: 11400000, guid: 2d2c91294a1e4ba4fb5652c7725406c9, type: 2}
 --- !u!114 &5557920001591177140
 MonoBehaviour:
   m_ObjectHideFlags: 0

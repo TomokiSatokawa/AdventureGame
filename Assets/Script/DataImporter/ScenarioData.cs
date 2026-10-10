@@ -2,6 +2,9 @@ using Csv.Annotations;
 
 namespace DataImporter
 {
+    /// <summary>
+    /// シナリオデータを管理する
+    /// </summary>
     [CsvObject]
     public partial class ScenarioData
     {
@@ -21,32 +24,43 @@ namespace DataImporter
         private string _myCharacterID;
 
         [Column(5)]
-        private string _characterID1;
+        private string _myCharacterChangeType;
 
         [Column(6)]
-        private string _characterPosition1;
+        private string _characterID1;
 
         [Column(7)]
-        private string _characterChangeType1;
+        private string _characterPosition1;
 
         [Column(8)]
-        private string _characterID2;
+        private string _characterChangeType1;
 
         [Column(9)]
-        private string _characterPosition2;
+        private string _characterID2;
 
         [Column(10)]
-        private string _characterChangeType2;
+        private string _characterPosition2;
 
         [Column(11)]
-        private string _characterID3;
+        private string _characterChangeType2;
 
         [Column(12)]
-        private string _characterPosition3;
+        private string _characterID3;
 
         [Column(13)]
+        private string _characterPosition3;
+
+        [Column(14)]
         private string _characterChangeType3;
 
+        [Column(15)]
+        private string _eventType;
+
+        [Column(16)]
+        private string _eventID;
+
+        [Column(17)]
+        private string _eventData;
 
         [IgnoreMember]
         public string PersonName => _personName;
@@ -62,6 +76,9 @@ namespace DataImporter
 
         [IgnoreMember]
         public string MyCharacterID => _myCharacterID;
+
+        [IgnoreMember]
+        public string MyCharacterChangeType => _myCharacterChangeType;
 
         [IgnoreMember]
         public string CharacterID1 => _characterID1;
@@ -89,5 +106,14 @@ namespace DataImporter
 
         [IgnoreMember]
         public string CharacterChangeType3 => _characterChangeType3;
+
+        [IgnoreMember]
+        public string EventType => _eventType;
+
+        [IgnoreMember]
+        public string EventID => _eventID;
+
+        [IgnoreMember]
+        public string EventData => _eventData;
     }
 }

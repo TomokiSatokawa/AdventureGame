@@ -9,20 +9,20 @@ namespace DataImporter
 {
     public class FileImporter : MonoBehaviour
     {
-
         [SerializeField] private FolderData _folderData;
         [SerializeField] private ImageImporter _imageImporter;
         [SerializeField] private SpreadsheetURL _scenarioURL;
         [SerializeField] private SpreadsheetURL _imageURL;
+        [SerializeField] private SpreadsheetURL _eventURL;
 
         public async UniTask LoadFile()
         {
-            Debug.Log("シナリオ更新");
             //シナリオ更新
+            Debug.Log("シナリオ更新");
             await LoadSpreadSheet(_folderData.ScenarioVersionsFileName, _folderData.ScenarioFolder, _scenarioURL);
 
-            Debug.Log("画像データ更新");
             //画像データ更新
+            Debug.Log("画像データ更新");
             var loadImageFile = await LoadSpreadSheet(_folderData.AssetVersionsFileName, _folderData.AssetFolder, _imageURL);
 
             foreach (var sheet in loadImageFile)
@@ -33,6 +33,10 @@ namespace DataImporter
                 var imageDatas = CsvSerializer.Deserialize<ImageIDData>(csv);
                 await _imageImporter.DownloadImages(imageDatas);
             }
+
+            //イベント更新
+            Debug.Log("イベントデータ更新");
+            await LoadSpreadSheet(_folderData.EventVersionsFileName, _folderData.EventFolder, _eventURL);
         }
 
         private async UniTask<List<string>> LoadSpreadSheet(string versionFile, string sectionDirectory, SpreadsheetURL urlData)
@@ -41,6 +45,7 @@ namespace DataImporter
             List<string> loadFile = GetSheetsToUpdate(importVersionData, versionFile);
 
             var directory = FileStorage.GetDirectory(_folderData.CashFolder, sectionDirectory);
+            Debug.Log(directory);
             foreach (var sheet in loadFile)
             {
                 string url = SpreadsheetURL.CreateURL(urlData.SpreadSheetID, sheet);
@@ -60,7 +65,7 @@ namespace DataImporter
             List<string> loadFile = new();
 
             //バージョンデータなし
-            if (storageVersionFile == null)
+            if (string.IsNullOrEmpty(storageVersionFile))
             {
                 //すべてのファイルをロードする
                 foreach (var versionData in importVersionData)

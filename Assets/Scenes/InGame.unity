@@ -1620,8 +1620,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Message.MessageControl
   _characterName: {fileID: 440341681}
   _messageText: {fileID: 1577568425}
+  _autoButton: {fileID: 1565612918}
   _normalTextInterval: 0.05
   _skipTextInterval: 0.01
+  _autoWaitTime: 1
 --- !u!1 &809209687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,6 +2173,7 @@ GameObject:
   - component: {fileID: 1216941794}
   - component: {fileID: 1216941793}
   - component: {fileID: 1216941792}
+  - component: {fileID: 1216941795}
   m_Layer: 5
   m_Name: AllSkip
   m_TagString: Untagged
@@ -2280,6 +2283,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216941790}
   m_CullTransparentMesh: 1
+--- !u!114 &1216941795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216941790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdb01c072eb16c47a2d67eec12890f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Common.UI.ToggleButton
+  _buttons: {fileID: 1216941792}
+  _selectColor: {r: 0.61120826, g: 1, b: 0.5113207, a: 1}
+  _unselectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1413320484
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,6 +2515,7 @@ GameObject:
   - component: {fileID: 1565612917}
   - component: {fileID: 1565612916}
   - component: {fileID: 1565612915}
+  - component: {fileID: 1565612918}
   m_Layer: 5
   m_Name: Auto
   m_TagString: Untagged
@@ -2606,6 +2625,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565612913}
   m_CullTransparentMesh: 1
+--- !u!114 &1565612918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565612913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdb01c072eb16c47a2d67eec12890f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Common.UI.ToggleButton
+  _buttons: {fileID: 1565612915}
+  _selectColor: {r: 0.61120826, g: 1, b: 0.5113207, a: 1}
+  _unselectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1577568423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3128,7 @@ GameObject:
   - component: {fileID: 1819967365}
   - component: {fileID: 1819967364}
   - component: {fileID: 1819967363}
+  - component: {fileID: 1819967366}
   m_Layer: 5
   m_Name: Skip
   m_TagString: Untagged
@@ -3203,6 +3238,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819967361}
   m_CullTransparentMesh: 1
+--- !u!114 &1819967366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819967361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdb01c072eb16c47a2d67eec12890f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Common.UI.ToggleButton
+  _buttons: {fileID: 1819967363}
+  _selectColor: {r: 0.61120826, g: 1, b: 0.5113207, a: 1}
+  _unselectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2003804679
 GameObject:
   m_ObjectHideFlags: 0

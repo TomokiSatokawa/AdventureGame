@@ -1,3 +1,4 @@
+using Common.UI;
 using Cysharp.Threading.Tasks;
 using R3;
 using TMPro;
@@ -14,9 +15,14 @@ namespace InGame.Message
         [SerializeField] private TextMeshProUGUI _characterName;
         [SerializeField] private TextMeshProUGUI _messageText;
 
+        [Header("ボタン")]
+        [SerializeField] private ToggleButton _autoButton;
+
         [Header("パラメーター")]
         [SerializeField] private float _normalTextInterval;
         [SerializeField] private float _skipTextInterval;
+        [SerializeField] private float _autoWaitTime;
+
 
         private MessageState _currentState = MessageState.Idle;
 
@@ -74,6 +80,12 @@ namespace InGame.Message
                 }
             }
             _currentState = MessageState.Wait;
+
+            if (_autoButton.IsOn)
+            {
+                await UniTask.WaitForSeconds(_autoWaitTime);
+                _currentState = MessageState.End;
+            }
 
             while (true)
             {

@@ -2,11 +2,13 @@ using Cysharp.Threading.Tasks;
 using DataImporter;
 using InGame.Branch;
 using InGame.Message;
+using TMPro;
 using UnityEngine;
 
 public class TestCode : MonoBehaviour
 {
     [SerializeField] private MessageControl _messageControl;
+    [SerializeField] private CharacterController _background;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private CharacterController _characterController2;
     [SerializeField] private ButtonsController _buttonsController;
@@ -21,6 +23,7 @@ public class TestCode : MonoBehaviour
             foreach (var scenario in currentScenario)
             {
                 //キャラ設定
+                SetCharacterImage(_background, scenario.BackgroundID, scenario.BackgroundChangeType);
                 SetCharacterImage(_characterController, scenario.MyCharacterID, scenario.MyCharacterChangeType);
                 SetCharacterImage(_characterController2, scenario.CharacterID1, scenario.CharacterChangeType1);
                 //会話ウインドウ

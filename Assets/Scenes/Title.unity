@@ -931,7 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioPlaybackDataFactory
   _startScenario: "Main\u30C6\u30B9\u30C8"
-  _startIndex: 2
+  _startIndex: 0
 --- !u!1 &1475862963
 GameObject:
   m_ObjectHideFlags: 0

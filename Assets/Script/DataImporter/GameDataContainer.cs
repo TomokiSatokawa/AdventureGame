@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace DataImporter
@@ -39,7 +41,7 @@ namespace DataImporter
             _branchDatas[id] = branch;
         }
 
-        public static IReadOnlyList<ScenarioData> GetScenario(string name)
+        public static List<ScenarioData> GetScenario(string name)
         {
             if (!_scenarios.TryGetValue(name, out var csvData))
             {
@@ -73,19 +75,19 @@ namespace DataImporter
 
         public class CSVData<T> : IReadonlyCSVData<T>
         {
-            private T[] datas;
+            private List<T> datas;
 
-            public IReadOnlyList<T> Data => datas;
+            public List<T> Data => datas;
 
             public void SetData(T[] data)
             {
-                datas = data;
+                datas = data.ToList();
             }
         }
 
         public interface IReadonlyCSVData<T>
         {
-            public IReadOnlyList<T> Data { get; }
+            public List<T> Data { get; }
         }
     }
 }

@@ -18,8 +18,10 @@ namespace InGame
         [SerializeField] private CharacterController _myCharacter;
         [SerializeField] private ButtonsController _buttonsController;
 
-        private IReadOnlyList<ScenarioData> _currentScenario;
-        public IReadOnlyList<ScenarioData> CurrentScenario => _currentScenario;
+        private List<ScenarioData> _currentScenario;
+        private string _currentScenarioName;
+        public List<ScenarioData> CurrentScenario => _currentScenario;
+        public string CurrentScenarioName => _currentScenarioName;
 
         private void Start()
         {
@@ -38,7 +40,8 @@ namespace InGame
         public async void PlayScenario(string scenarioName,int start)
         {
             _currentScenario = GameDataContainer.GetScenario(scenarioName);
-            
+            _currentScenarioName = scenarioName;
+
             //再生開始位置を指定
             var startIndex = Mathf.Min(start, _currentScenario.Count - 1);
             Debug.Log(startIndex  + " " + start);
@@ -93,6 +96,7 @@ namespace InGame
                         case '2':
                             var select = await _buttonsController.ShowButton(GameDataContainer.GetBranch(scenario.EventID));
                             _currentScenario = GameDataContainer.GetScenario(select);
+                            _currentScenarioName = select;
                             isEndScenario = true;
                             break;
 

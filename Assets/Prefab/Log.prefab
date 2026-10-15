@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Log.LogControl
   _characterImage: {fileID: 7022325240193351345}
+  _selectButton: {fileID: 6875946584540854724}
   _personName: {fileID: 665444266677671872}
   _mainText: {fileID: 8451199328027550589}
 --- !u!1 &4320714642297462408

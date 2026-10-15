@@ -18,7 +18,7 @@ namespace InGame.Log
         {
             if (!string.IsNullOrWhiteSpace(scenarioData.CharacterID1))
             {
-                   _characterImage.sprite = GameDataContainer.GetImage(scenarioData.CharacterID1);
+                _characterImage.sprite = GameDataContainer.GetImage(scenarioData.CharacterID1);
             }
 
             _personName.text = scenarioData.PersonName;

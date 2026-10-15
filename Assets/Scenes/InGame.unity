@@ -3925,7 +3925,7 @@ MonoBehaviour:
   _messageControl: {fileID: 790380732}
   _background: {fileID: 840225011}
   _characterController: {fileID: 3830953509401203254}
-  _characterController2: {fileID: 395891267}
+  _myCharacter: {fileID: 395891267}
   _buttonsController: {fileID: 1009422471}
 --- !u!4 &1574526483
 Transform:

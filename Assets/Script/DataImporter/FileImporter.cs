@@ -45,7 +45,6 @@ namespace DataImporter
             List<string> loadFile = GetSheetsToUpdate(importVersionData, versionFile);
 
             var directory = FileStorage.GetDirectory(_folderData.CashFolder, sectionDirectory);
-            Debug.Log(directory);
             foreach (var sheet in loadFile)
             {
                 string url = SpreadsheetURL.CreateURL(urlData.SpreadSheetID, sheet);
